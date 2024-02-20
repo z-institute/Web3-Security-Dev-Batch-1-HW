@@ -47,4 +47,10 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
   1. 本地foundry 框架模擬較為單純，不若主網及測試網複雜，有諸多影響 gas usage 的外部變因  
   2. 本地 EVM 運行的版本和主網及測試網不同，也會影響 gas usage
   3. deploy 合約時所使用的參數，如 --optimizer-runs 200，也會多少影響 gas usage
-- 
+- 驗證每個角色的 balance 如預期，除了  
+  1. user2 將 user1 的 2 個 token 轉移到 user3 身上，並將剩餘的 token 轉移給自己
+  2. 因 allowance 不足，會導致 ERC20InsufficientAllowance revert
+- 將 user1 的 balance 分別用 Ether、Gwei 為單位表示
+  1. cast call 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 "balanceOf(address)(uint256)" --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" 0x0278137e8E2C38111297c9991815507eB16eaf25 取得 6000000000000000000
+  2. cast to-unit 6000000000000000000 gwei 取得 6000000000
+  3. cast to-unit 6000000000000000000 ether 取得 6
