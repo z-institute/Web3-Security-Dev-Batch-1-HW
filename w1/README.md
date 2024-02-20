@@ -18,7 +18,11 @@
   | transfer                     | 3288            | 3288  | 3288   | 3288  | 3       |
   | transferFrom                 | 4162            | 4162  | 4162   | 4162  | 1       |
 - 印出每個 test function 使用多少 gas  
-  ==> 文件[點擊](test_function_gas.txt)
+  ==> 參考 test_function_gas.txt
 - expectRevert 之後的 token.transferFrom(user1, user2, token.balanceOf(user1)); 引發的 ERC20InsufficientAllowance 錯誤，forge 仍是沒 catch 到，拋出「call did not revert as expected」的提示
 
-### 完成對應的測試
+### 完成測試後，利用 Foundry 將合約部署至 Sepolia testnet
+- test/Token.s.sol
+```
+forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" --broadcast --verify -vvvv --optimizer-runs 200
+```
