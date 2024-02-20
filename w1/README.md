@@ -28,6 +28,4 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
 ```
 
 ### 成功部署後，驗證鏈上的合約
-```
-contract address: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
-```
+- contract address: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
