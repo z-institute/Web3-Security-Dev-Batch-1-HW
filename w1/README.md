@@ -28,7 +28,8 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
 ```
 
 ### 成功部署後，驗證鏈上的合約
-- contract address: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73#code)
+- contract creation address: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73#code)
 
 ### 將前面的測試情境，用 Foundry 發出對應的交易到剛剛部署在測試鏈上的合約
-- 9 transactions: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
+- 8 transactions: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
+
