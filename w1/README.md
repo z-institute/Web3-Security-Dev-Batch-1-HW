@@ -26,3 +26,8 @@
 ```
 forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" --broadcast --verify -vvvv --optimizer-runs 200
 ```
+
+### 成功部署後，驗證鏈上的合約
+```
+contract address: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
+```
