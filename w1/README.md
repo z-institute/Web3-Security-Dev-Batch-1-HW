@@ -32,4 +32,6 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
 
 ### 將前面的測試情境，用 Foundry 發出對應的交易到剛剛部署在測試鏈上的合約
 - 8 transactions: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
+- 3 Mints, 2 Transfers, 1 Approve, 1 Transfer From
+
 
