@@ -51,6 +51,9 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
   1. user2 將 user1 的 2 個 token 轉移到 user3 身上，並將剩餘的 token 轉移給自己
   2. 因 allowance 不足，會導致 ERC20InsufficientAllowance revert
 - 將 user1 的 balance 分別用 Ether、Gwei 為單位表示
-  1. cast call 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 "balanceOf(address)(uint256)" --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" 0x0278137e8E2C38111297c9991815507eB16eaf25 取得 6000000000000000000
-  2. cast to-unit 6000000000000000000 gwei 取得 6000000000
-  3. cast to-unit 6000000000000000000 ether 取得 6
+  1. cast call 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 "balanceOf(address)(uint256)" --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" 0x0278137e8E2C38111297c9991815507eB16eaf25 得到 6000000000000000000
+  2. cast to-unit 6000000000000000000 gwei 得到 6000000000
+  3. cast to-unit 6000000000000000000 ether 得到 6
+- 將 user2 的 balance 用十六進位表示
+  1. cast call 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 "balanceOf(address)(uint256)" --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" 0x3cee49Aa0a6a489A81E18162449554983f3A3555 得到 1000000000000000000
+  2. cast to-hex 10000000000000000000 得到 0x8ac7230489e80000
