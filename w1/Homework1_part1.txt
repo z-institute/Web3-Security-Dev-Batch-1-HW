@@ -1,0 +1,127 @@
+[[part1]]
+//for function test script and gas report
+//forge test --gas-report --force -vvvvv
+
+Traces:
+  [658827] TokenERC20Test::setUp()
+    ├─ [0] VM::prank(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946])
+    │   └─ ← ()
+    ├─ [598764] → new Mytoken@0x8Ad159a275AEE56fb2334DBb69036E9c7baCEe9b
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946])
+    │   └─ ← 3188 bytes of code
+    └─ ← ()
+
+  [265680] TokenERC20Test::testTransferAcrossMultipleAccount()
+    ├─ [0] VM::startPrank(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946])
+    │   └─ ← ()
+    ├─ [2629] Mytoken::balanceOf(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946]) [staticcall]
+    │   └─ ← 0
+    ├─ [0] console::log(0) [staticcall]
+    │   └─ ← ()
+    ├─ [46998] Mytoken::mint(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946], 100)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946], value: 100)
+    │   └─ ← ()
+    ├─ [346] Mytoken::owner() [staticcall]
+    │   └─ ← deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946]
+    ├─ [0] console::log(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946]) [staticcall]
+    │   └─ ← ()
+    ├─ [629] Mytoken::balanceOf(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946]) [staticcall]
+    │   └─ ← 100
+    ├─ [0] console::log(100) [staticcall]
+    │   └─ ← ()
+    ├─ [629] Mytoken::balanceOf(deployer: [0xaE0bDc4eEAC5E950B67C6819B118761CaAF61946]) [staticcall]
+    │   └─ ← 100
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF])
+    │   └─ ← ()
+    ├─ [49516] Mytoken::mint(10)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], value: 10)
+    │   └─ ← ()
+    ├─ [629] Mytoken::balanceOf(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF]) [staticcall]
+    │   └─ ← 10
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802])
+    │   └─ ← ()
+    ├─ [47516] Mytoken::mint(9)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], value: 9)
+    │   └─ ← ()
+    ├─ [629] Mytoken::balanceOf(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802]) [staticcall]
+    │   └─ ← 9
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec])
+    │   └─ ← ()
+    ├─ [47516] Mytoken::mint(8)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], value: 8)
+    │   └─ ← ()
+    ├─ [629] Mytoken::balanceOf(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec]) [staticcall]
+    │   └─ ← 8
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF])
+    │   └─ ← ()
+    ├─ [3244] Mytoken::transfer(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], 5)
+    │   ├─ emit Transfer(from: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], to: user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], value: 5)
+    │   └─ ← true
+    ├─ [629] Mytoken::balanceOf(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF]) [staticcall]
+    │   └─ ← 5
+    ├─ [629] Mytoken::balanceOf(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802]) [staticcall]
+    │   └─ ← 14
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802])
+    │   └─ ← ()
+    ├─ [3244] Mytoken::transfer(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], 4)
+    │   ├─ emit Transfer(from: user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], to: user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], value: 4)
+    │   └─ ← true
+    ├─ [629] Mytoken::balanceOf(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802]) [staticcall]
+    │   └─ ← 10
+    ├─ [629] Mytoken::balanceOf(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec]) [staticcall]
+    │   └─ ← 12
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec])
+    │   └─ ← ()
+    ├─ [3244] Mytoken::transfer(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], 3)
+    │   ├─ emit Transfer(from: user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], to: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], value: 3)
+    │   └─ ← true
+    ├─ [629] Mytoken::balanceOf(user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec]) [staticcall]
+    │   └─ ← 9
+    ├─ [629] Mytoken::balanceOf(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF]) [staticcall]
+    │   └─ ← 8
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF])
+    │   └─ ← ()
+    ├─ [24762] Mytoken::approve(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], 3)
+    │   ├─ emit Approval(owner: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], spender: user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], value: 3)
+    │   └─ ← true
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    ├─ [0] VM::startPrank(user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802])
+    │   └─ ← ()
+    ├─ [4185] Mytoken::transferFrom(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], 2)
+    │   ├─ emit Transfer(from: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], to: user3: [0xc0A55e2205B289a967823662B841Bd67Aa362Aec], value: 2)
+    │   └─ ← true
+    ├─ [4185] Mytoken::transferFrom(user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], 1)
+    │   ├─ emit Transfer(from: user1: [0x29E3b139f4393aDda86303fcdAa35F60Bb7092bF], to: user2: [0x537C8f3d3E18dF5517a58B3fB9D9143697996802], value: 1)
+    │   └─ ← true
+    ├─ [0] VM::stopPrank()
+    │   └─ ← ()
+    └─ ← ()
+
+Test result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.87ms
+| src/Mytoken.sol:Mytoken contract |                 |       |        |       |         |
+|----------------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost                  | Deployment Size |       |        |       |         |
+| 598764                           | 3188            |       |        |       |         |
+| Function Name                    | min             | avg   | median | max   | # calls |
+| approve                          | 24762           | 24762 | 24762  | 24762 | 1       |
+| balanceOf                        | 629             | 795   | 629    | 2629  | 12      |
+| mint(address,uint256)            | 46998           | 46998 | 46998  | 46998 | 1       |
+| mint(uint256)                    | 47516           | 48182 | 47516  | 49516 | 3       |
+| owner                            | 346             | 346   | 346    | 346   | 1       |
+| transfer                         | 3244            | 3244  | 3244   | 3244  | 3       |
+| transferFrom                     | 4185            | 4185  | 4185   | 4185  | 2       |

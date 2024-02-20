@@ -1,0 +1,176 @@
+[[part2]]
+//for deployment simulation at script/Mytoken.sol
+//forge script script/Mytoken.s.sol:MytokenScript --rpc-url $SEPOLIA_RPC_URL -vvvvv
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [598764] → new Mytoken@0x644BB6A45454d9DDE84e684909e4D5C44867c9bC
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x411ED39027035cde105d2452f5B68B0f276e8a5A)
+    └─ ← 3188 bytes of code
+
+  [48998] Mytoken::mint(0x411ED39027035cde105d2452f5B68B0f276e8a5A, 100)
+    ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x411ED39027035cde105d2452f5B68B0f276e8a5A, amount: 100)
+    └─ ← ()
+
+  [54316] Mytoken::mint(10)
+    ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x72A258AB3c69475E49cCd4a6005A953be165C338, amount: 10)
+    └─ ← ()
+
+  [54316] Mytoken::mint(9)
+    ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, amount: 9)
+    └─ ← ()
+
+  [54316] Mytoken::mint(8)
+    ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xb49f2567f22117ff07070Df55B0D6D68c69492e2, amount: 8)
+    └─ ← ()
+
+  [12844] Mytoken::transfer(0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, 5)
+    ├─ emit Transfer(from: 0x72A258AB3c69475E49cCd4a6005A953be165C338, to: 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, amount: 5)
+    └─ ← true
+
+  [12844] Mytoken::transfer(0xb49f2567f22117ff07070Df55B0D6D68c69492e2, 4)
+    ├─ emit Transfer(from: 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, to: 0xb49f2567f22117ff07070Df55B0D6D68c69492e2, amount: 4)
+    └─ ← true
+
+  [12844] Mytoken::transfer(0x72A258AB3c69475E49cCd4a6005A953be165C338, 3)
+    ├─ emit Transfer(from: 0xb49f2567f22117ff07070Df55B0D6D68c69492e2, to: 0x72A258AB3c69475E49cCd4a6005A953be165C338, amount: 3)
+    └─ ← true
+
+  [24762] Mytoken::approve(0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, 3)
+    ├─ emit Approval(owner: 0x72A258AB3c69475E49cCd4a6005A953be165C338, spender: 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, amount: 3)
+    └─ ← true
+
+  [18585] Mytoken::transferFrom(0x72A258AB3c69475E49cCd4a6005A953be165C338, 0xb49f2567f22117ff07070Df55B0D6D68c69492e2, 2)
+    ├─ emit Transfer(from: 0x72A258AB3c69475E49cCd4a6005A953be165C338, to: 0xb49f2567f22117ff07070Df55B0D6D68c69492e2, amount: 2)
+    └─ ← true
+
+  [14868] Mytoken::transferFrom(0x72A258AB3c69475E49cCd4a6005A953be165C338, 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, 1)
+    ├─ emit Transfer(from: 0x72A258AB3c69475E49cCd4a6005A953be165C338, to: 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32, amount: 1)
+    └─ ← true
+
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 73.742065051 gwei
+
+Estimated total gas used for script: 1645931
+
+Estimated amount required: 0.121374350871457481 ETH
+
+==========================
+
+SIMULATION COMPLETE. To broadcast these transactions, add --broadcast and wallet configuration(s) to the previous command. See forge script --help for more.
+
+Transactions saved to: /home/jack/helloworld/my-first-project/broadcast/Mytoken.s.sol/11155111/dry-run/run-latest.json
+
+Sensitive values saved to: /home/jack/helloworld/my-first-project/cache/Mytoken.s.sol/11155111/dry-run/run-latest.json
+
+
+//for deployment to testnet and its real gas breakdown at script/Mytoken.sol
+//forge script script/Mytoken.s.sol:MytokenScript --broadcast --etherscan-api-key $ETH_API_KEY --verify --rpc-url $SEPOLIA_RPC_URL -vvvvv
+###
+Finding wallets for all the necessary addresses...
+##
+Sending transactions [0 - 10].
+⠁ [00:00:00] [##############>--------------------------------------------------------------------------------------------------------------------------------------------] 1/11 txes (4.9s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x6084204fb0a596be92f6aeb3d5c0f338cd3e18decb22871dc39dac3186c6f7be
+Contract Address: 0xDE3d4a88262536A408297C7778Ab7aCA3926335E
+Block: 5327098
+Paid: 0.03683502894137112 ETH (701520 gas * 52.507453731 gwei)
+
+⠉ [00:00:14] [############################>-----------------------------------------------------------------------------------------------------------------------------] 2/11 txes (81.4s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x4a426d0658856ab4253bc227e5227bd6540265e70967edf9790d30e4fa825caf
+Block: 5327099
+Paid: 0.00372208340052664 ETH (70570 gas * 52.743140152 gwei)
+
+⠙ [00:00:28] [#########################################>---------------------------------------------------------------------------------------------------------------] 3/11 txes (107.3s)⠉ [00:00:07] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x2525b764e64dbba30b993e5a9f8efe1bddb4f3c1e3cc4b5de96a6cbb1c244e91
+Block: 5327100
+Paid: 0.00403960895812992 ETH (75520 gas * 53.490584721 gwei)
+
+⠚ [00:00:37] [########################################################>-------------------------------------------------------------------------------------------------] 4/11 txes (71.1s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xb30db11f5b17205ae36d1c808a40d2ed4f9bbed0af0062cfc3139b145117e711
+Block: 5327101
+Paid: 0.00411469141911424 ETH (75520 gas * 54.484791037 gwei)
+
+⠒ [00:00:50] [######################################################################>-----------------------------------------------------------------------------------] 5/11 txes (75.6s)⠉ [00:00:07] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x56bb52e9936b17bed5a0e985cbdd30a7dc628c2e6e7d93b6946dda7c6347bd71
+Block: 5327102
+Paid: 0.00420772384117888 ETH (75520 gas * 55.716682219 gwei)
+
+⠂ [00:00:58] [####################################################################################>---------------------------------------------------------------------] 6/11 txes (48.4s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xf110ca2ef42b74f9204eb80e6b7f7d4cbf9064cfe95600f493a7129d91f40071
+Block: 5327103
+Paid: 0.001883156992394112 ETH (34416 gas * 54.717485832 gwei)
+
+⠂ [00:01:12] [##################################################################################################>-------------------------------------------------------] 7/11 txes (49.8s)⠉ [00:00:25] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xa3639d2d6044d96a545a06057848b34ddcc427615cb2bfd3fbdbab1cf9fb7d7a
+Block: 5327105
+Paid: 0.001717485550634736 ETH (34416 gas * 49.903694521 gwei)
+
+⠒ [00:01:38] [################################################################################################################>-----------------------------------------] 8/11 txes (75.9s)⠉ [00:00:07] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x7cc2d6457eaf0401f0b27d9ef8c76e030da77232c968b2af9a10719248642271
+Block: 5327106
+Paid: 0.001917500749413048 ETH (34404 gas * 55.734820062 gwei)
+
+⠲ [00:01:46] [##############################################################################################################################>---------------------------] 9/11 txes (24.2s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xd3441faa1c102af10b1b03f020fcfa78923c3fc83db6bd2db54310d260eca0de
+Block: 5327107
+Paid: 0.002616501776042886 ETH (46334 gas * 56.470448829 gwei)
+
+⠴ [00:02:00] [###########################################################################################################################################>-------------] 10/11 txes (13.4s)⠉ [00:00:13] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xf5f821511138b7947964fd4799f0134525d6a9722aa33ea64bec68f8a7a999fe
+Block: 5327108
+Paid: 0.002149392080410696 ETH (40513 gas * 53.054379592 gwei)
+
+⠤ [00:02:14] [##########################################################################################################################################################] 11/11 txes (0.0s)⠉ [00:00:07] [########################################################################################################################################################] 1/1 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0xa8168af2d9e5535921ab54d233e4a426b87ce3cf99727ac05f0fc766942092de
+Block: 5327109
+Paid: 0.001824673016656539 ETH (35713 gas * 51.092683803 gwei)
+
+
+Transactions saved to: /home/jack/helloworld/my-first-project/broadcast/Mytoken.s.sol/11155111/run-latest.json
+
+Sensitive values saved to: /home/jack/helloworld/my-first-project/cache/Mytoken.s.sol/11155111/run-latest.json
+
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+Total Paid: 0.065027846725872817 ETH (1224446 gas * avg 53.628742227 gwei)
+##
+Start verification for (1) contracts
+Start verifying contract `0xDE3d4a88262536A408297C7778Ab7aCA3926335E` deployed on sepolia
+
+Submitting verification for [src/Mytoken.sol:Mytoken] 0xDE3d4a88262536A408297C7778Ab7aCA3926335E.
+Submitted contract for verification:
+        Response: `OK`
+        GUID: `765ggrwerp4hts6gk9qwdvqi2q3hbdxuy2wk7cnks5znp4qwtr`
+        URL: https://sepolia.etherscan.io/address/0xde3d4a88262536a408297c7778ab7aca3926335e
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+All (1) contracts were verified!
+
+Transactions saved to: /home/jack/helloworld/my-first-project/broadcast/Mytoken.s.sol/11155111/run-latest.json
+
+Sensitive values saved to: /home/jack/helloworld/my-first-project/cache/Mytoken.s.sol/11155111/run-latest.json
