@@ -1,0 +1,116 @@
+xinminjiang@Xinmins-MacBook-Pro SammiToken % forge test -vvvv
+[⠆] Compiling...
+[⠘] Compiling 1 files with 0.8.24
+[⠃] Solc 0.8.24 finished in 1.50s
+Compiler run successful!
+
+Ran 2 tests for test/SammiToken.t.sol:SammiTokenTest
+[PASS] test_mint_deployer() (gas: 60815)
+Logs:
+  49069
+
+Traces:
+  [60815] SammiTokenTest::test_mint_deployer()
+    ├─ [52316] SammiToken::mint(SammiTokenTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], 100)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: SammiTokenTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496], value: 100000000000000000000 [1e20])
+    │   ├─ [0] console::log(49069 [4.906e4]) [staticcall]
+    │   │   └─ ← ()
+    │   └─ ← ()
+    ├─ [562] SammiToken::balanceOf(SammiTokenTest: [0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496]) [staticcall]
+    │   └─ ← 100000000000000000000 [1e20]
+    └─ ← ()
+
+[PASS] test_mint_user() (gas: 162356)
+Logs:
+  49363
+  25463
+  25463
+
+Traces:
+  [162356] SammiTokenTest::test_mint_user()
+    ├─ [266] SammiToken::decimals() [staticcall]
+    │   └─ ← 18
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← 0x3EB67A970E24813F80040FD5d707fe6881d5063d
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8
+    ├─ [52610] SammiToken::mint(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, 10)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, value: 10000000000000000000 [1e19])
+    │   ├─ [0] console::log(49363 [4.936e4]) [staticcall]
+    │   │   └─ ← ()
+    │   └─ ← ()
+    ├─ [26210] SammiToken::mint(0x3EB67A970E24813F80040FD5d707fe6881d5063d, 9)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x3EB67A970E24813F80040FD5d707fe6881d5063d, value: 9000000000000000000 [9e18])
+    │   ├─ [0] console::log(25463 [2.546e4]) [staticcall]
+    │   │   └─ ← ()
+    │   └─ ← ()
+    ├─ [26210] SammiToken::mint(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, 8)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, value: 8000000000000000000 [8e18])
+    │   ├─ [0] console::log(25463 [2.546e4]) [staticcall]
+    │   │   └─ ← ()
+    │   └─ ← ()
+    ├─ [562] SammiToken::balanceOf(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656) [staticcall]
+    │   └─ ← 10000000000000000000 [1e19]
+    ├─ [562] SammiToken::balanceOf(0x3EB67A970E24813F80040FD5d707fe6881d5063d) [staticcall]
+    │   └─ ← 9000000000000000000 [9e18]
+    ├─ [562] SammiToken::balanceOf(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8) [staticcall]
+    │   └─ ← 8000000000000000000 [8e18]
+    ├─ [0] VM::prank(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656)
+    │   └─ ← ()
+    ├─ [3288] SammiToken::transfer(0x3EB67A970E24813F80040FD5d707fe6881d5063d, 5000000000000000000 [5e18])
+    │   ├─ emit Transfer(from: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, to: 0x3EB67A970E24813F80040FD5d707fe6881d5063d, value: 5000000000000000000 [5e18])
+    │   └─ ← true
+    ├─ [562] SammiToken::balanceOf(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656) [staticcall]
+    │   └─ ← 5000000000000000000 [5e18]
+    ├─ [562] SammiToken::balanceOf(0x3EB67A970E24813F80040FD5d707fe6881d5063d) [staticcall]
+    │   └─ ← 14000000000000000000 [1.4e19]
+    ├─ [0] VM::prank(0x3EB67A970E24813F80040FD5d707fe6881d5063d)
+    │   └─ ← ()
+    ├─ [3288] SammiToken::transfer(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, 4000000000000000000 [4e18])
+    │   ├─ emit Transfer(from: 0x3EB67A970E24813F80040FD5d707fe6881d5063d, to: 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, value: 4000000000000000000 [4e18])
+    │   └─ ← true
+    ├─ [562] SammiToken::balanceOf(0x3EB67A970E24813F80040FD5d707fe6881d5063d) [staticcall]
+    │   └─ ← 10000000000000000000 [1e19]
+    ├─ [562] SammiToken::balanceOf(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8) [staticcall]
+    │   └─ ← 12000000000000000000 [1.2e19]
+    ├─ [0] VM::prank(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8)
+    │   └─ ← ()
+    ├─ [3288] SammiToken::transfer(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, 3000000000000000000 [3e18])
+    │   ├─ emit Transfer(from: 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, to: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, value: 3000000000000000000 [3e18])
+    │   └─ ← true
+    ├─ [562] SammiToken::balanceOf(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656) [staticcall]
+    │   └─ ← 8000000000000000000 [8e18]
+    ├─ [562] SammiToken::balanceOf(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8) [staticcall]
+    │   └─ ← 9000000000000000000 [9e18]
+    ├─ [0] VM::prank(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656)
+    │   └─ ← ()
+    ├─ [24739] SammiToken::approve(0x3EB67A970E24813F80040FD5d707fe6881d5063d, 3000000000000000000 [3e18])
+    │   ├─ emit Approval(owner: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, spender: 0x3EB67A970E24813F80040FD5d707fe6881d5063d, value: 3000000000000000000 [3e18])
+    │   └─ ← true
+    ├─ [836] SammiToken::allowance(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, 0x3EB67A970E24813F80040FD5d707fe6881d5063d) [staticcall]
+    │   └─ ← 3000000000000000000 [3e18]
+    ├─ [0] VM::prank(0x3EB67A970E24813F80040FD5d707fe6881d5063d)
+    │   └─ ← ()
+    ├─ [4162] SammiToken::transferFrom(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, 2000000000000000000 [2e18])
+    │   ├─ emit Transfer(from: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, to: 0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8, value: 2000000000000000000 [2e18])
+    │   └─ ← true
+    ├─ [562] SammiToken::balanceOf(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656) [staticcall]
+    │   └─ ← 6000000000000000000 [6e18]
+    ├─ [562] SammiToken::balanceOf(0xa954e28F0Bf73c71444c84E6eBB248D6b4Db6fE8) [staticcall]
+    │   └─ ← 11000000000000000000 [1.1e19]
+    ├─ [0] VM::prank(0x3EB67A970E24813F80040FD5d707fe6881d5063d)
+    │   └─ ← ()
+    ├─ [4162] SammiToken::transferFrom(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, 0x3EB67A970E24813F80040FD5d707fe6881d5063d, 1000000000000000000 [1e18])
+    │   ├─ emit Transfer(from: 0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656, to: 0x3EB67A970E24813F80040FD5d707fe6881d5063d, value: 1000000000000000000 [1e18])
+    │   └─ ← true
+    ├─ [562] SammiToken::balanceOf(0x62d283FE6939c01FC88f02C6d2C9A547Cc3e2656) [staticcall]
+    │   └─ ← 5000000000000000000 [5e18]
+    ├─ [562] SammiToken::balanceOf(0x3EB67A970E24813F80040FD5d707fe6881d5063d) [staticcall]
+    │   └─ ← 11000000000000000000 [1.1e19]
+    └─ ← ()
+
+Test result: ok. 2 passed; 0 failed; 0 skipped; finished in 3.85ms
+
+Ran 1 test suite: 2 tests passed, 0 failed, 0 skipped (2 total tests)
