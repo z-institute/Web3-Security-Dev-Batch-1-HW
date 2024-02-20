@@ -10,7 +10,7 @@ w1
 ![image](TestFunction.png)
 ### 輸出 function Gas
 
-![image](AllFunctionGas.png)
+![image](Allfunctiongas.png)
 ### 部署後合約地址
 ```bash
 forge create --rpc-url=$LOCALHOST --private-key=$PRIVATE_KEY MyToken
