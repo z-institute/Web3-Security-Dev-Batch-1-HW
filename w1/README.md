@@ -57,7 +57,7 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
 - 將 user2 的 balance 用十六進位表示
   1. cast call 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 "balanceOf(address)(uint256)" --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key" 0x3cee49Aa0a6a489A81E18162449554983f3A3555 得到 1000000000000000000
   2. cast to-hex 10000000000000000000 得到 0x8ac7230489e80000
-- 印出任意一個 tramsaction 的詳細資訊
+- 印出任意一個 transaction 的詳細資訊 (contract creation)
   1. cast tx 0x5a27fc0ad10adcee38a483c9ced1a68026e826ebacd7259447ec175913b88a6d --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key"
   ```
   blockHash            0x2448b0a0dfe949cd2a3123f388e5d444dad44508cdee6effda492d4da0ba228e
@@ -75,4 +75,42 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
   v                    0
   value                0
   yParity              0
+  ```
+- 印出交易的 trace (user1 授權 user2 3 個 token)
+  1. cast tx 0x01fbaf70e918e3db86e71963717f2f6ce24949b9b75c5cb95a9a713e101bc153 --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key"
+  ```
+  blockHash            0x4e2224bb41c0f1e30e11932ec3c58196f89ebceb76470a44233e8fc9d13764bc
+  blockNumber          5325966
+  from                 0x0278137e8E2C38111297c9991815507eB16eaf25
+  gas                  67817
+  gasPrice             4624115873
+  hash                 0x01fbaf70e918e3db86e71963717f2f6ce24949b9b75c5cb95a9a713e101bc153
+  input                0x095ea7b30000000000000000000000003cee49aa0a6a489a81e18162449554983f3a355500000000000000000000000000000000000000000000000029a2241af62c0000
+  nonce                9
+  r                    0xdde748a9356c053b311ad8b41bf82171c27c5ec471c45fbfaf87f02246537dca
+  s                    0x7f297808cfec0edf58316330a9d396091dab914c8a36c8aa577f92250d72b228
+  to                   0xaFfB198193e8681f58DB28DBBaf72be91699Fb73
+  transactionIndex     46
+  v                    0
+  value                0
+  yParity              0
+  ```
+- 印出交易的 trace (user2 轉移 user1 2 個 token 給 user3)
+  1. cast tx 0x5f16666dd2932a691569ad276e2f243b1a0d57872955ae77b5d2db3c9cb3097b --rpc-url="https://eth-sepolia.g.alchemy.com/v2/your_alchemy_api_key"
+  ```
+  blockHash            0x1b6cbbbf98d389e0d248bec5aa2c4b0ed762e3b622a0441b72a56c8a20f68b65
+  blockNumber          5325967
+  from                 0x3cee49Aa0a6a489A81E18162449554983f3A3555
+  gas                  59321
+  gasPrice             4714697931
+  hash                 0x5f16666dd2932a691569ad276e2f243b1a0d57872955ae77b5d2db3c9cb3097b
+  input                0x23b872dd0000000000000000000000000278137e8e2c38111297c9991815507eb16eaf2500000000000000000000000040e21775b93b187ecc688602b08f74d241e3a98b0000000000000000000000000000000000000000000000001bc16d674ec80000
+  nonce                6
+  r                    0xde20d4f2ecf90969aba5ef0d7d0e2a41983771b08e36e56d06ec80c8e9ce1f43
+  s                    0x5199924ec93da4bbc72859732b8b844071a4bdd373d67c2a94c49f0b530e798a
+  to                   0xaFfB198193e8681f58DB28DBBaf72be91699Fb73
+  transactionIndex     24
+  v                    1
+  value                0
+  yParity              1
   ```
