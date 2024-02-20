@@ -1,2 +1,1 @@
-# Web3-Security-Dev-Batch-1-HW
-w1
+# Week1 for Web3-Security-Dev-Batch-1-HW
