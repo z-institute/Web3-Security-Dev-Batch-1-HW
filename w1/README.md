@@ -34,4 +34,17 @@ forge script script/Token.s.sol:TokenScript --rpc-url="https://eth-sepolia.g.alc
 - 8 transactions: 0xaFfB198193e8681f58DB28DBBaf72be91699Fb73 [link](https://sepolia.etherscan.io/address/0xaFfB198193e8681f58DB28DBBaf72be91699Fb73)
 - 3 Mints, 2 Transfers, 1 Approve, 1 Transfer From
 
-
+### 熟悉 cast CLI 工具
+- gas usage
+  | src/Token.sol:Token contract | Simulation      | Sepolia deploy  |
+  |------------------------------|-----------------|-----------------|
+  | Contract creation            | 500301          | 604361          | 
+  | Token::mint (x3)             | 29967           | 51599           |
+  | Token::transfer (x2)         | 12888           | 34520           |
+  | Token::approve               | 24739           | 46371           |
+  | Token::transferFrom          | 18562           | 40562           |
+- 上鏈後的 gas usage 比本地模擬的多，可能的原因如下:  
+  1. 本地foundry 框架模擬較為單純，不若主網及測試網複雜，有諸多影響 gas usage 的外部變因  
+  2. 本地 EVM 運行的版本和主網及測試網不同，也會影響 gas usage
+  3. deploy 合約時所使用的參數，如 --optimizer-runs 200，也會多少影響 gas usage
+- 
