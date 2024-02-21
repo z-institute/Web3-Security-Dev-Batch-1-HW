@@ -40,7 +40,7 @@
 
     ```shell=
     # private key 的方式
-     cast send <DEPLOYED_ADDRESS> --rpc-url=$SEPOLIA_RPC_URL <function> [function_ARGS] <YOUR_ADDRESS_HERE>  --private-key <private key>
+     cast send <DEPLOYED_ADDRESS> --rpc-url=$SEPOLIA_RPC_URL <function> [function_ARGS]  --private-key <private key>
 
      cast send <DEPLOYED_ADDRESS> --rpc-url=$SEPOLIA_RPC_URL "mint(address,uint256)" 0x 1 --private-key 0x
 
