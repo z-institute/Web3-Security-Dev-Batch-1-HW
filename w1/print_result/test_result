@@ -1,8 +1,6 @@
 xinminjiang@Xinmins-MacBook-Pro SammiToken % forge test -vvvv
 [⠆] Compiling...
-[⠘] Compiling 1 files with 0.8.24
-[⠃] Solc 0.8.24 finished in 1.50s
-Compiler run successful!
+No files changed, compilation skipped
 
 Ran 2 tests for test/SammiToken.t.sol:SammiTokenTest
 [PASS] test_mint_deployer() (gas: 60815)
@@ -111,6 +109,6 @@ Traces:
     │   └─ ← 11000000000000000000 [1.1e19]
     └─ ← ()
 
-Test result: ok. 2 passed; 0 failed; 0 skipped; finished in 3.85ms
+Test result: ok. 2 passed; 0 failed; 0 skipped; finished in 3.89ms
 
 Ran 1 test suite: 2 tests passed, 0 failed, 0 skipped (2 total tests)

@@ -14,7 +14,7 @@ contract SammiTokenScript is Script {
 
         vm.startBroadcast(privateKey);
         SammiToken st = new SammiToken();
-        st.mint(account, (100 * 10 ** uint256(st.decimals())));
+        st.mint(account, 100);
         vm.stopBroadcast();
     }
 }

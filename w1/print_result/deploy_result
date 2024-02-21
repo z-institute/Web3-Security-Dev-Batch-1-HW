@@ -1,0 +1,114 @@
+xinminjiang@Xinmins-MacBook-Pro SammiToken % forge script SammiTokenScript --rpc-url $SEPOLIA_RPC_URL --etherscan-api-key $ETHERSCAN_API_KEY --broadcast --verify -vvvvv
+[⠆] Compiling...
+No files changed, compilation skipped
+Traces:
+  [98] SammiTokenScript::setUp()
+    └─ ← ()
+
+  [660657] SammiTokenScript::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← 0xd601b22688B67AA592E61c0cfA1a526a22829796
+    ├─ [0] console::log("Account", 0xd601b22688B67AA592E61c0cfA1a526a22829796) [staticcall]
+    │   └─ ← ()
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← ()
+    ├─ [572415] → new SammiToken@0x0e337c05460f8A5043e0aef8a4E3C9447235d88e
+    │   └─ ← 3024 bytes of code
+    ├─ [47816] SammiToken::mint(0xd601b22688B67AA592E61c0cfA1a526a22829796, 100)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd601b22688B67AA592E61c0cfA1a526a22829796, amount: 100000000000000000000 [1e20])
+    │   ├─ [0] console::log(47069 [4.706e4]) [staticcall]
+    │   │   └─ ← ()
+    │   └─ ← ()
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← ()
+    └─ ← ()
+
+
+Script ran successfully.
+
+== Logs ==
+  Account 0xd601b22688B67AA592E61c0cfA1a526a22829796
+  47069
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [572415] → new SammiToken@0x0e337c05460f8A5043e0aef8a4E3C9447235d88e
+    └─ ← 3024 bytes of code
+
+  [52316] SammiToken::mint(0xd601b22688B67AA592E61c0cfA1a526a22829796, 100)
+    ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xd601b22688B67AA592E61c0cfA1a526a22829796, amount: 100000000000000000000 [1e20])
+    ├─ [0] console::log(49069 [4.906e4]) [staticcall]
+    │   └─ ← ()
+    └─ ← ()
+
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 82.251999486 gwei
+
+Estimated total gas used for script: 976466
+
+Estimated amount required: 0.080316280930096476 ETH
+
+==========================
+
+###
+Finding wallets for all the necessary addresses...
+##
+Sending transactions [0 - 1].
+⠉ [00:00:00] [#################################################] 2/2 txes (0.0s)
+Transactions saved to: /Users/xinminjiang/zSecurity/SammiToken/broadcast/SammiTokenScript.sol/11155111/run-latest.json
+
+Sensitive values saved to: /Users/xinminjiang/zSecurity/SammiToken/cache/SammiTokenScript.sol/11155111/run-latest.json
+
+##
+Waiting for receipts.
+⠙ [00:00:18] [#############################################] 2/2 receipts (0.0s)
+##### sepolia
+✅  [Success]Hash: 0x809fcc8da3662c192edc0be9e875b5d338bf71f516318753554bda2406392e44
+Contract Address: 0x0e337c05460f8A5043e0aef8a4E3C9447235d88e
+Block: 5335062
+Paid: 0.034529391444890034 ETH (672813 gas * 51.320933818 gwei)
+
+
+##### sepolia
+✅  [Success]Hash: 0x342ffa32ab096b16fc5c39929d616c9b1253ca8ccfc1331262e59d092ddc4e23
+Block: 5335062
+Paid: 0.003792001157944384 ETH (73888 gas * 51.320933818 gwei)
+
+
+Transactions saved to: /Users/xinminjiang/zSecurity/SammiToken/broadcast/SammiTokenScript.sol/11155111/run-latest.json
+
+Sensitive values saved to: /Users/xinminjiang/zSecurity/SammiToken/cache/SammiTokenScript.sol/11155111/run-latest.json
+
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+Total Paid: 0.038321392602834418 ETH (746701 gas * avg 51.320933818 gwei)
+##
+Start verification for (1) contracts
+Start verifying contract `0x0e337c05460f8A5043e0aef8a4E3C9447235d88e` deployed on sepolia
+
+Submitting verification for [src/SammiToken.sol:SammiToken] 0x0e337c05460f8A5043e0aef8a4E3C9447235d88e.
+
+Submitting verification for [src/SammiToken.sol:SammiToken] 0x0e337c05460f8A5043e0aef8a4E3C9447235d88e.
+Submitted contract for verification:
+        Response: `OK`
+        GUID: `ijcrelsvtnq6ieudxq1gjywkgbnjskknbnffujfqxthmw1kxxe`
+        URL: https://sepolia.etherscan.io/address/0x0e337c05460f8a5043e0aef8a4e3c9447235d88e
+Contract verification status:
+Response: `NOTOK`
+Details: `Pending in queue`
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+All (1) contracts were verified!
