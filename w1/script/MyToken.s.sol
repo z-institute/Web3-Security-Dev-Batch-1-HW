@@ -2,11 +2,12 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
+import {MyToken} from "src/MyToken.sol";
 
-contract CounterScript is Script {
+contract MyTokenScript is Script {
+    MyToken myToken;
+
     function setUp() public {}
 
-    function run() public {
-        vm.broadcast();
-    }
+    function run() public {}
 }
