@@ -9,5 +9,13 @@ contract MyTokenScript is Script {
 
     function setUp() public {}
 
-    function run() public {}
+    function run() public {
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        address deployerAddress = 
+        vm.startBroadcast(deployerPrivateKey);
+        myToken = new MyToken();
+
+        myToken.mint()
+        vm.stopBroadcast();
+    }
 }
