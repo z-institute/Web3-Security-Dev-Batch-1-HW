@@ -19,9 +19,11 @@
     "test:gas": "REPORT_GAS=true CONTRACT_SIZER=true hardhat test",
     "test:trace": "hardhat test --trace",
     "test:fulltrace": "hardhat test --fulltrace",
-    "test:forge": "forge build && forge test -vv",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
-    "verify": "hardhat run scripts/verify.ts --network"
+    "verify": "hardhat run scripts/verify.ts --network",
+    "test:forge": "forge build && forge test -vv",
+    "gas-report:forge": "forge test --gas-report",
+    "test:gas-snapshot": "forge snapshot"
   },
   "devDependencies": {
     "@ethersproject/bignumber": "^5.7.0",
