@@ -1,6 +1,8 @@
-pragma solidity 0.8.13;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity 0.8.20;
 
-import "@openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "forge-std/console.sol";
 
 contract DaoToken is ERC20("Dao Token", "DaoToken") {
     address public owner;
@@ -12,6 +14,7 @@ contract DaoToken is ERC20("Dao Token", "DaoToken") {
 
     constructor() {
         owner = msg.sender;
+        console.log("DaoToken owner: %s", owner);
     }
 
     function mint(address _to, uint256 _amount) public onlyOwner {
@@ -57,6 +60,7 @@ contract DaoToken is ERC20("Dao Token", "DaoToken") {
     }
 
     function delegate(address _addr) external {
+        console.log("msg.sender: %s", msg.sender);
         return _delegate(msg.sender, _addr);
     }
 
@@ -67,8 +71,11 @@ contract DaoToken is ERC20("Dao Token", "DaoToken") {
 
     function _delegate(address _addr, address delegatee) internal {
         address currentDelegate = _delegates[_addr];
+        console.log("Current Delegate: %s", currentDelegate);
         uint256 _addrBalance = balanceOf(_addr);
+        console.log("Balance of _addr: %s", _addrBalance);
         _delegates[_addr] = delegatee;
+        console.log("_delegates[_addr]: %s", _delegates[_addr]);
         _moveDelegates(currentDelegate, delegatee, _addrBalance);
     }
 
