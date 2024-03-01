@@ -71,3 +71,12 @@ test:gas-snapshot
 ```
 <img width="1410" alt="Screenshot 2024-03-01 at 1 01 35 AM" src="https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/assets/56249189/894a0fc4-3342-4f01-98c4-3804849f39d9">
 
+### Onchain Deployments & Verifications (Sepolia)
+
+```sh
+forge script scripts/foundry/deployToken.s.sol --broadcast --verify --account testAccount --rpc-url sepolia
+```
+<img width="1538" alt="image" src="https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/assets/56249189/bc4f1282-6851-4b22-9259-d4bd71e260b1">
+
+<img width="1529" alt="image" src="https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/assets/56249189/15464208-e364-47a6-9d1a-491a4dae1af4">
+
