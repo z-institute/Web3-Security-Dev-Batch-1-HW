@@ -5,7 +5,6 @@ pragma solidity ^0.8.0;
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-
 interface IReceiver {
     function receiveTokens(address tokenAddress, uint256 amount) external;
 }
@@ -14,7 +13,6 @@ interface IReceiver {
  * @title lenderPool
  */
 contract LenderPool is ReentrancyGuard {
-
     IERC20 public immutable amazingToken;
     uint256 public poolBalance;
 
@@ -38,11 +36,11 @@ contract LenderPool is ReentrancyGuard {
 
         // Ensured by the protocol via the `depositTokens` function
         assert(poolBalance == balanceBefore);
-        
+
         amazingToken.transfer(msg.sender, borrowAmount);
-        
+
         IReceiver(msg.sender).receiveTokens(address(amazingToken), borrowAmount);
-        
+
         uint256 balanceAfter = amazingToken.balanceOf(address(this));
         require(balanceAfter >= balanceBefore, "Flash loan hasn't been paid back");
     }

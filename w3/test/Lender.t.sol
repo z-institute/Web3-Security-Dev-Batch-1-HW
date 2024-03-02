@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
+
 import {LenderPool} from "src/LenderPool.sol";
 import {ReceiverPool} from "src/ReceiverPool.sol";
 import {AmazingToken} from "src/AmazingToken.sol";
@@ -10,17 +11,14 @@ import {stdError} from "forge-std/Test.sol";
 contract dosLenderTest is Test {
     address public someUser = address(0x123);
     address public attacker = address(0x456);
-    uint TOKENS_IN_POOL = 1000000 ether;
-    uint INITIAL_ATTACKER_TOKEN_BALANCE = 100 ether;
+    uint256 TOKENS_IN_POOL = 1000000 ether;
+    uint256 INITIAL_ATTACKER_TOKEN_BALANCE = 100 ether;
 
     AmazingToken token;
     LenderPool pool;
     ReceiverPool receiverContract;
 
-
-
-    function setUp() public  {
-
+    function setUp() public {
         // setup contracts
         token = new AmazingToken();
         pool = new LenderPool(address(token));
@@ -40,16 +38,18 @@ contract dosLenderTest is Test {
         vm.stopPrank();
     }
 
-    function testExploit() public  {
-        /** CODE YOUR EXPLOIT HERE */
-        
-        /** SUCCESS CONDITIONS */
+    function testExploit() public {
+        /**
+         * CODE YOUR EXPLOIT HERE
+         */
+
+        /**
+         * SUCCESS CONDITIONS
+         */
 
         // It is no longer possible to execute flash loans
         vm.expectRevert(stdError.assertionError);
         vm.prank(someUser);
         receiverContract.executeFlashLoan(10);
     }
-
-    
 }

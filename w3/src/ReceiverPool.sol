@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
+
 import {LenderPool} from "src/LenderPool.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 /**
  * @title ReceiverPool
  */
-contract ReceiverPool {
 
+contract ReceiverPool {
     LenderPool private immutable pool;
     address private immutable owner;
 
