@@ -67,3 +67,8 @@ W2
   daoToken.delegate(hacker); // carl delegate to hacker -> hacker vote = 3000
   daoToken.transfer(hacker, 1000); // hacker using carl address send token to hacker
 ```
+
+
+團體作業補充回答：
+
+https://hackmd.io/@jlUcRpm-QcOwe2cxBxjf4w/Sk07j_php
