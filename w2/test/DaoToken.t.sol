@@ -45,7 +45,27 @@ contract exploitTest is Test {
         uint256 hacker_balance = daoToken.balanceOf(hacker);
         console.log("Hacker's daoToken after the attack: %s: ", hacker_balance);
 
-        // assertEq(hacker_vote, 3000);
-        // assertEq(hacker_balance, 1000);
+        assertEq(hacker_vote, 3000);
+        assertEq(hacker_balance, 1000);
+    }
+
+    function testContractCodeLength() public {
+        address contract_addr = address(daoToken);
+        console.log(contract_addr.code.length);
+        console.log(hacker.code.length);
+    }
+
+    function testOverwriteAllowance() public {
+        vm.prank(alice);
+        daoToken.approve(bob, 1000);
+
+        vm.prank(bob);
+        daoToken.transferFrom(alice, carol, 1000);
+
+        vm.prank(alice);
+        daoToken.approve(bob, 100);
+
+        console.log(daoToken.allowance(alice, bob)); // 100
+        console.log(daoToken.balanceOf(carol)); // 1000
     }
 }
