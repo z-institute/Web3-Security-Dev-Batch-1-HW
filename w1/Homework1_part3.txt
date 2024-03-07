@@ -1,0 +1,111 @@
+[[part3]]
+//gas usage
+from homework part2,every  function running on ether-testnet cost more gas than simulation 
+//上鏈後的 gas usage 比本地模擬的多，可能的原因如下
+block difficulties?
+block formation is different?
+//驗證每個角色的 balance 是否如預期
+
+//user1
+//user2
+//user3 
+//results
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast call 0x644BB6A45454d9DDE84e684909e4D5C44867c9bC  "balanceOf(address)(uint256)" --rpc-url $SEPOLIA_RPC_URL 0x72A258AB3c69475E49cCd4a6005A953be165C338
+5
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast call 0x644BB6A45454d9DDE84e684909e4D5C44867c9bC  "balanceOf(address)(uint256)" --rpc-url $SEPOLIA_RPC_URL 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32 
+11
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast call 0x644BB6A45454d9DDE84e684909e4D5C44867c9bC  "balanceOf(address)(uint256)" --rpc-url $SEPOLIA_RPC_URL 0xb49f2567f22117ff07070Df55B0D6D68c69492e2 
+11
+
+//將 user1 的 balance 分別用 Ether、Gwei 為單位表示
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast to-unit 5 gwei
+0.000000005
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast to-unit 5 ether
+0.000000000000000005
+
+//將 user2 的 balance 用十六進位表示
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast to-hex 11
+0xb
+
+//印出任意一個 transaction 的詳細資訊
+//user1 transfer
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast tx 0xf110ca2ef42b74f9204eb80e6b7f7d4cbf9064cfe95600f493a7129d91f40071 --rpc-url $SEPOLIA_RPC_URL
+
+blockHash            0x4d824d1546e635482a5c9308417f3448831ad59a85a0222c83d5354808d6e502
+blockNumber          5327103
+from                 0x72A258AB3c69475E49cCd4a6005A953be165C338
+gas                  47537
+gasPrice             54717485832
+hash                 0xf110ca2ef42b74f9204eb80e6b7f7d4cbf9064cfe95600f493a7129d91f40071
+input                0xa9059cbb0000000000000000000000005f33b2aa9b52a017e1c4ced12fa4e8a72f4fba320000000000000000000000000000000000000000000000000000000000000005
+nonce                1
+r                    0xfea62e96655f8adca12ed5cf91a5ea6e98934592982933a9a50c05ed20d38e70
+s                    0x0ea248d68ce30e3d2bd5d58c74b7460ec2667c10128471f43886db6bebb34493
+to                   0xDE3d4a88262536A408297C7778Ab7aCA3926335E
+transactionIndex     54
+v                    0
+value                0
+yParity              0
+
+verify by-->
+Possible methods:
+ - transfer(address,uint256)
+ ------------
+ [000]: 0000000000000000000000005f33b2aa9b52a017e1c4ced12fa4e8a72f4fba32
+ [020]: 0000000000000000000000000000000000000000000000000000000000000005
+
+
+// - 印出以下兩筆交易的 trace
+//    - user1 授權 user2 3 個 token
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast tx 0x363e1bb94f2e088d57a4685951a7a89e3906f3af09852b7378f9b8bf2b7bba2f --rpc-url $SEPOLIA_RPC_URL
+
+blockHash            0x9daac8326989bb5c7c3ccbf835e55d869900540b43aa8d6c8eee6ad01f174c45
+blockNumber          5327452
+from                 0x72A258AB3c69475E49cCd4a6005A953be165C338
+gas                  63997
+gasPrice             33276298363
+hash                 0x363e1bb94f2e088d57a4685951a7a89e3906f3af09852b7378f9b8bf2b7bba2f
+input                0x095ea7b30000000000000000000000005f33b2aa9b52a017e1c4ced12fa4e8a72f4fba320000000000000000000000000000000000000000000000000000000000000003
+nonce                5
+r                    0x1d00fbbcde81fa5e73e6728a777bfd3a2b632b507b9297d162c4f2a094721d24
+s                    0x5a88b890793be1b0a30e4ffe990f1df99001302616f60eacd33dd33395e95944
+to                   0x644BB6A45454d9DDE84e684909e4D5C44867c9bC
+transactionIndex     38
+v                    1
+value                0
+yParity              1
+
+verify--->
+ Possible methods:
+ - approve(address,uint256)
+ ------------
+ [000]: 0000000000000000000000005f33b2aa9b52a017e1c4ced12fa4e8a72f4fba32
+ [020]: 0000000000000000000000000000000000000000000000000000000000000003
+  
+  
+//- user2 轉移 user1 2 個 token 給 user3
+jack@LAPTOP-0M1P0TGU:~/helloworld/my-first-project$ cast tx 0x052cf5cb7010dbbc49fe5e59d3acf89a73fa4e48dabd9150724d950a63c2d9b0 --rpc-url $SEPOLIA_RPC_URL
+
+blockHash            0xa0de73afa3a7bda0fe7eee83100e06058ae91ef2dff1d0a57afdb521f679e891
+blockNumber          5327453
+from                 0x5f33B2aA9B52A017E1C4cED12FA4E8a72f4fBA32
+gas                  59250
+gasPrice             32981808631
+hash                 0x052cf5cb7010dbbc49fe5e59d3acf89a73fa4e48dabd9150724d950a63c2d9b0
+input                0x23b872dd00000000000000000000000072a258ab3c69475e49ccd4a6005a953be165c338000000000000000000000000b49f2567f22117ff07070df55b0d6d68c69492e20000000000000000000000000000000000000000000000000000000000000002
+nonce                6
+r                    0x09e39dd3ca291e1eb9af931731917ffa3cc33f418c159ff8d0f84d85549e5301
+s                    0x7fff111d54f93f525fb80487aeff7720d8c0aa927d3a1ee1a41200f039a62e97
+to                   0x644BB6A45454d9DDE84e684909e4D5C44867c9bC
+transactionIndex     41
+v                    1
+value                0
+yParity              1
+
+verify-->
+ Possible methods:
+ - transferFrom(address,address,uint256)
+ ------------
+ [000]: 00000000000000000000000072a258ab3c69475e49ccd4a6005a953be165c338
+ [020]: 000000000000000000000000b49f2567f22117ff07070df55b0d6d68c69492e2
+ [040]: 0000000000000000000000000000000000000000000000000000000000000002
