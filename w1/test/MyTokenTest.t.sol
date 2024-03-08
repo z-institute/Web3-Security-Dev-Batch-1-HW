@@ -5,7 +5,6 @@ pragma solidity ^0.8.18;
 import {Test, console2} from "forge-std/Test.sol";
 // import {DeployMyToken} from "../script/DeployMyToken.s.sol";
 import {MyToken} from "../src/MyToken.sol";
-import "forge-std/console.sol";
 
 contract MyTokenTest is Test {
     MyToken myToken;
