@@ -12,10 +12,3 @@ docs/
 
 # Dotenv file
 .env
-
-lib/
-
-# Node modules
-.vscode/
-
-```
