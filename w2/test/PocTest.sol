@@ -20,54 +20,54 @@ contract pocTest is Test {
         vm.stopPrank();
     }
 
-    // function testPoc() public {
-    //     vm.startPrank(alice);
-    //     // Alice approve to bob.
-    //     pocToken.approve(bob, 100);
-    //     vm.stopPrank();
+    function testPoc() public {
+        vm.startPrank(alice);
+        // Alice approve to bob.
+        pocToken.approve(bob, 100);
+        vm.stopPrank();
 
-    //     uint256 alice_allowance = pocToken.allowance(alice, bob);
-    //     console.log("Alice's allowance to Bob: %s", alice_allowance);
-    //     assertEq(alice_allowance, 100);
-    //     vm.startPrank(bob);
-    //     // Bob transfer from Alice to Bob.
-    //     pocToken.transferFrom(alice, bob, 100);
-    //     uint256 bob_balance = pocToken.balanceOf(bob);
-    //     console.log("Bob's balance: %s", bob_balance);
-    //     vm.startPrank(alice);
-    //     pocToken.approve(bob, 50);
+        uint256 alice_allowance = pocToken.allowance(alice, bob);
+        console.log("Alice's allowance to Bob: %s", alice_allowance);
+        assertEq(alice_allowance, 100);
+        vm.startPrank(bob);
+        // Bob transfer from Alice to Bob.
+        pocToken.transferFrom(alice, bob, 100);
+        uint256 bob_balance = pocToken.balanceOf(bob);
+        console.log("Bob's balance: %s", bob_balance);
+        vm.startPrank(alice);
+        pocToken.approve(bob, 50);
 
-    //     alice_allowance = pocToken.allowance(alice, bob);
-    //     console.log("Alice's allowance to Bob: %s", alice_allowance);
-    //     assertEq(alice_allowance, 50);
-    // }
+        alice_allowance = pocToken.allowance(alice, bob);
+        console.log("Alice's allowance to Bob: %s", alice_allowance);
+        assertEq(alice_allowance, 50);
+    }
 
-    // function testuncheckedMath() public {
-    //     uncheckedMath = new UncheckedMath();
-    //     uint8 x = 255;
-    //     uint8 y = 5;
-    //     // pass
-    //     uncheckedMath.add(x, y);
-    //     // no pass arithmetic underflow or overflow (0x11)
-    //     vm.expectRevert(stdError.arithmeticError);
-    //     uncheckedMath.addChecked(x, y);
-    // }
+    function testuncheckedMath() public {
+        uncheckedMath = new UncheckedMath();
+        uint8 x = 255;
+        uint8 y = 5;
+        // pass
+        uncheckedMath.add(x, y);
+        // no pass arithmetic underflow or overflow (0x11)
+        vm.expectRevert(stdError.arithmeticError);
+        uncheckedMath.addChecked(x, y);
+    }
 
-    // function testCheckedGas() public {
-    //     uncheckedMath = new UncheckedMath();
-    //     uint8 x = 1;
-    //     uint8 y = 2;
-    //     // 131883 gas
-    //     uncheckedMath.addChecked(x, y);
-    // }
+    function testCheckedGas() public {
+        uncheckedMath = new UncheckedMath();
+        uint8 x = 1;
+        uint8 y = 2;
+        // 131883 gas
+        uncheckedMath.addChecked(x, y);
+    }
 
-    // function testUncheckedGas() public {
-    //     uncheckedMath = new UncheckedMath();
-    //     uint8 x = 1;
-    //     uint8 y = 2;
-    //     // 131737 gas
-    //     uncheckedMath.add(x, y);
-    // }
+    function testUncheckedGas() public {
+        uncheckedMath = new UncheckedMath();
+        uint8 x = 1;
+        uint8 y = 2;
+        // 131737 gas
+        uncheckedMath.add(x, y);
+    }
 
     function testContractCodeSize0() public {
         // 0x11
