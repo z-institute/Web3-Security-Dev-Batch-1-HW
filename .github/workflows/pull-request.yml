@@ -3,7 +3,7 @@ name: Pull-request actions
 on:
   push:
     branches:
-      - "*"
+      - "Z24028003"
   workflow_dispatch:
 
 env:
