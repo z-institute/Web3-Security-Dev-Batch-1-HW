@@ -3,8 +3,6 @@ pragma solidity ^0.8.20;
 
 import "./Game.sol";
 
-import "forge-std/Console.sol";
-
 contract Attack {
     Game game;
     uint256 public lastGuess;
