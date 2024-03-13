@@ -47,6 +47,12 @@ contract dosLenderTest is Test {
         /**
          * SUCCESS CONDITIONS
          */
+        uint256 amazingTokenbalance = token.balanceOf(address(pool));
+        uint256 poolBalance = pool.poolBalance();
+        console.log("Amazing Token balance: ", amazingTokenbalance);
+        // Amazing Token balance:  1000000000000000000000001
+        console.log("poolBalance: ", poolBalance);
+        // poolBalance:  1000000000000000000000000
 
         // It is no longer possible to execute flash loans
         vm.expectRevert(stdError.assertionError);
