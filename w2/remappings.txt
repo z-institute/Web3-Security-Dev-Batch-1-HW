@@ -1,6 +1,0 @@
-@opensezppling/=lib/openzeppelin-contracts/
-ds-test/=lib/forge-std/lib/ds-test/src/
-forge-std/=lib/forge-std/src/
-solmate/=lib/solmate/src/
-hardhat/=node_modules/hardhat/
-@prb/test/=lib/prb-test/src/
