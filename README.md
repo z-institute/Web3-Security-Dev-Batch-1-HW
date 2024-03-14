@@ -8,3 +8,16 @@ The Z Institute provides two month interactive Ethereum developer training cours
 
 - Z24028008 [(J)](https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/tree/Z24028008/w1)
 
+
+## Week 2：智能合約入門ERC20、ERC721、ERC1155
+
+### Excellent homework
+
+- Z24028008 [(J)](https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/tree/Z24028008/w2)
+
+- Z24028002 [(Walter)](https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/tree/Z24028002/w2)
+
+- Z24028003 [(Rory)](https://github.com/z-institute/Web3-Security-Dev-Batch-1-HW/tree/Z24028003/w2)
+
+
+
