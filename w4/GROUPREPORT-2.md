@@ -21,7 +21,7 @@ EX:
 
 案例：
 
-Catgirl 貓女
+[Catgirl](https://www.catgirl.io/zh-TW#home) 貓女
 
 Catgirl 是一個 NFT 市場，允許用戶列出、購買、出售和取消訂單。
 
@@ -29,6 +29,7 @@ Catgirl 是一個 NFT 市場，允許用戶列出、購買、出售和取消訂�
 以下的功能允許用戶透過 BNB 代幣交換他們的 Catgirl NFT，但由於交換操作期間缺乏最低輸出值執行機制，目前存在潛在的搶先交易風險。
 
 當發生非常大的掉期交易時，惡意用戶可能會以更高的汽油費介入以搶佔交易，導致買方以更高的價格購買
+
 
 
 ```
@@ -39,5 +40,6 @@ Catgirl 是一個 NFT 市場，允許用戶列出、購買、出售和取消訂�
         pancakeRouter.swapExactETHForTokensSupportingFeeOnTransferTokens{
             value: amount
         }(0, path, address(this), block.timestamp);
+        // 最小價格、交換路徑、地址、時限
     }
 ```
