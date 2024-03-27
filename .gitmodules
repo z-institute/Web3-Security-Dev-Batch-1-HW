@@ -16,3 +16,12 @@
 [submodule "w3/lib/openzeppelin-contracts"]
 	path = w3/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "w4/lib/forge-std"]
+	path = w4/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w4/lib/openzeppelin-contracts"]
+	path = w4/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "w6/lib/forge-std"]
+	path = w6/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
