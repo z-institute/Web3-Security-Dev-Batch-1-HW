@@ -16,15 +16,15 @@ contract SwordGame is ERC1155, Ownable {
         _setURI(_newuri);
     }
 
-    function mint(uint256 tokenId) external payable returns(uint256) {
-	    require(msg.value == 1 ether, "not enough eth");
+    function mint(uint256 tokenId) external payable returns (uint256) {
+        require(msg.value == 1 ether, "not enough eth");
         require(!claimed[msg.sender], "already claimed");
         require(totalSupplyForTokenId[tokenId] <= maxSupplyForTokenId, "reach max supply");
 
-    	totalSupplyForTokenId[tokenId]++;
-		_mint(msg.sender, tokenId, 1, "");
-    	claimed[msg.sender] = true;
+        totalSupplyForTokenId[tokenId]++;
+        _mint(msg.sender, tokenId, 1, "");
+        claimed[msg.sender] = true;
 
         return totalSupplyForTokenId[tokenId];
-	}
+    }
 }
