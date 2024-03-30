@@ -1,0 +1,17 @@
+strict digraph {
+subgraph cluster_100_CryptoCurrencyStore {
+label = "CryptoCurrencyStore"
+"100_getContractAddress" [label="getContractAddress"]
+"100_deposit" [label="deposit"]
+"100_getBalance" [label="getBalance"]
+"100_withdraw" [label="withdraw"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"require(bool)" 
+"require(bool,string)" 
+"balance(address)" 
+"100_withdraw" -> "require(bool,string)"
+"100_withdraw" -> "require(bool)"
+"100_getBalance" -> "balance(address)"
+}
+}
