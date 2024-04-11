@@ -7,8 +7,8 @@ import {LenderPool} from "src/LenderPool.sol";
 
 contract LenderTest is Test {
 
-    // Pool has 1000000 ETH in balance
-    uint TOKENS_IN_POOL = 1000000 ether;
+    // Pool has 1000000 token in balance
+    uint TOKENS_IN_POOL = 1000000;
 
     AmazingToken token;
     LenderPool pool;
