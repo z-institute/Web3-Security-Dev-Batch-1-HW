@@ -36,15 +36,9 @@
 [submodule "w4/lib/openzeppelin-contracts"]
 	path = w4/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
-<<<<<<< HEAD
-[submodule "w5/lib/forge-std"]
-	path = w5/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
-=======
 [submodule "w6/lib/forge-std"]
 	path = w6/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
 [submodule "w6/lib/openzeppelin-contracts"]
 	path = w6/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
->>>>>>> main
