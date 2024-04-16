@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Homework 5
 
 ### Summary
@@ -48,3 +49,7 @@ if(isWhitelisted[msg.sender] == true)
  - Use tools 4naly3er The  [Report](./REPORT.md)
 
   - https://medium.com/@ChiHaoLu/how-to-test-the-smart-contract-of-iparking-nft-with-foundry-bc8bdbe6a359
+=======
+# Web3-Security-Dev-Batch-1-HW
+w7
+>>>>>>> main

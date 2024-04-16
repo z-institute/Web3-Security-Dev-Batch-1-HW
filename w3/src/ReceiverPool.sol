@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 
+<<<<<<< HEAD
 pragma solidity ^0.8.20;
+=======
+pragma solidity ^0.8.0;
+>>>>>>> main
 
 import {LenderPool} from "src/LenderPool.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";

