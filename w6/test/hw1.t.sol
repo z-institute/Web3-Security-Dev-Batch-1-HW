@@ -16,12 +16,12 @@ contract exploitNFTTest is Test {
         swordGame = new SwordGame();
         attackHW1 = new AttackHW1(swordGame);
         vm.stopPrank();
-
         vm.deal(hacker, 1 ether);
     }
 
     function testExploit() public {
         vm.startPrank(hacker);
+        vm.deal(address(attackHW1), 10 ether);
         attackHW1.attack{value: 1 ether}();
         vm.stopPrank();
         assertEq(swordGame.balanceOf(hacker, 1), 10);
