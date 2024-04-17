@@ -1,0 +1,4 @@
+MyTokenTest:testMint() (gas: 55515)
+MyTokenTest:testMultipleAccounts() (gas: 206497)
+MyTokenTest:testUser1NotOverMint() (gas: 61034)
+MyTokenTest:testUser1OverMint() (gas: 16144)

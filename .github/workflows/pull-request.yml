@@ -1,6 +1,78 @@
 name: Pull-request actions
 
 on:
+<<<<<<< HEAD
+  push:
+    branches:
+      - "Z24028003"
+  workflow_dispatch:
+
+env:
+  FOUNDRY_PROFILE: ci
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+
+    name: Foundry project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run Forge build
+        run: |
+          forge --version
+          forge build --sizes
+        id: build
+
+      - name: Run Forge tests in w1
+        run: forge test
+        working-directory: ./w1
+        id: test_w1
+
+      - name: Run Forge tests in w2
+        run: forge test
+        working-directory: ./w2
+        id: test_w2
+
+      - name: Run Forge tests in w3
+        run: forge test
+        working-directory: ./w3
+        id: test_w3
+
+      - name: Run Forge tests in w4
+        run: forge test
+        working-directory: ./w4
+        id: test_w4
+
+      - name: Run Forge tests in w5
+        run: forge test
+        working-directory: ./w5
+        id: test_w5
+
+      - name: Run Forge tests in w6
+        run: forge test
+        working-directory: ./w6
+        id: test_w6
+
+      - name: Run Forge tests in w7
+        run: forge test
+        working-directory: ./w7
+        id: test_w7
+
+      - name: Run Forge tests in w8
+        run: forge test
+        working-directory: ./w8
+        id: test_w8
+=======
     push:
         branches:
             - "*"
@@ -71,3 +143,4 @@ jobs:
               run: forge test
               working-directory: ./w8
               id: test_w8
+>>>>>>> main

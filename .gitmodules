@@ -28,3 +28,9 @@
 [submodule "w6/lib/openzeppelin-contracts"]
 	path = w6/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "w7/lib/forge-std"]
+	path = w7/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w7/lib/openzeppelin-contracts"]
+	path = w7/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

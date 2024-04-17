@@ -12,4 +12,7 @@ docs/
 
 # Dotenv file
 .env
+<<<<<<< HEAD
+=======
 .DS_Store
+>>>>>>> main
